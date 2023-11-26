@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo-card {
+  margin: 10px;
+  max-width: 200px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  text-align: center;
+}
+
+.info-item {
+  margin: 5px 0;
+}
