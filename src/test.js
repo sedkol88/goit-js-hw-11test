@@ -1,6 +1,9 @@
 import axios from 'axios';
 import notiflix from 'notiflix';
 
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 let currentPage = 1;
 let currentQuery = '';
 let currentHits = 0;
@@ -10,6 +13,12 @@ const refs = {
   gallery: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('.load-more'),
 };
+
+const gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
 
 refs.searchForm.addEventListener('submit', async function (event) {
   event.preventDefault();
@@ -40,6 +49,7 @@ refs.searchForm.addEventListener('submit', async function (event) {
       currentHits = data.hits.length;
       console.log(currentHits);
       console.log(data);
+      gallery.refresh();
     }
     if (data.totalHits === data.hits.length) {
       refs.loadMoreBtn.style.display = 'none';
@@ -100,14 +110,15 @@ function createMarkup(arr) {
     .map(
       ({
         webformatURL,
+        largeImageURL,
         tags,
         likes,
         views,
         comments,
         downloads,
       }) => `<div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-  <div class="info">
+      <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
+    <div class="info">
     <p class="info-item">
       <b>Likes ${likes}</b>
     </p>

@@ -5,11 +5,33 @@ body {
 
 .search-form {
   margin-bottom: 20px;
+  background-color: rgb(64, 189, 64);
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.search-form input {
+  border-radius: 3px;
+  font-size: 18px;
+}
+.search-form button {
+  border-radius: 3px;
+  background-color: rgb(85, 85, 234);
+  font-size: 18px;
+  color: white;
+  padding: 6px;
+}
+.search-form button:hover {
+  background-color: cornflowerblue;
+  cursor: pointer;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-card {
@@ -23,9 +45,23 @@ body {
 }
 
 .info {
-  text-align: center;
+  text-align: start;
 }
 
 .info-item {
-  margin: 5px 0;
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+.load-more {
+  border-radius: 3px;
+  background-color: blue;
+  font-size: 18px;
+  color: white;
+  padding: 6px;
+  margin: 0 auto;
+}
+.load-more:hover {
+  background-color: cornflowerblue;
+  cursor: pointer;
 }
