@@ -70,8 +70,10 @@ async function handleLoadMore() {
     const data = await searchImages(currentQuery, currentPage);
     refs.gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
     refs.loadMoreBtn.disabled = false;
+    gallery.refresh();
+
     currentHits = currentHits + data.hits.length;
-    console.log(currentHits);
+    // console.log(currentHits);
     if (currentHits === data.totalHits || currentHits >= 500) {
       notiflix.Notify.warning(
         "We're sorry, but you've reached the end of search results."
